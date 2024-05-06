@@ -43,7 +43,9 @@ body {
 }
 
 .front {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg); /*rotation effect*/
+  transition: all ease-in 0.25s; /*the change of css will be animated smoothly within 0.25 secs*/
+  mix-blend-mode: multiply; /*blend mode will multiply colors of both images*/
 }
 .back {
   position: absolute;
