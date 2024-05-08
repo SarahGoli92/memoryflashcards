@@ -11,7 +11,9 @@ function Match() {
 
   matchedCards ? disableCard() : unFlip()
 }
-function getCard() {}
+function getCard(singleCard) {
+  singleCard.getAttribute('.card')
+}
 
 //flip cards and check whether they match()
 function flipCard() {
@@ -24,4 +26,11 @@ function flipCard() {
   }
   backCard = this
   Match()
+}
+
+function freezeCards() {
+  frontCard.removeEventListener('click', flipCard())
+  backCard.removeEventListener('click', flipCard)
+
+  resetGame()
 }
