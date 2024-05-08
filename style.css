@@ -35,18 +35,25 @@ body {
   margin-left: 200%;
 }
 
-.back,
 .front {
   max-width: 150px;
   /* object-fit: contain; */
   /*  */
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }
 
-.front {
+.card.flip {
   transform: rotateY(180deg); /*rotation effect*/
   transition: all ease-in 0.25s; /*the change of css will be animated smoothly within 0.25 secs*/
-  mix-blend-mode: multiply; /*blend mode will multiply colors of both images*/
+  /*blend mode will multiply colors of both images*/
+  /* mix-blend-mode: multiply; */
+}
+.card.flip .front {
+  z-index: 0;
 }
 .back {
-  position: absolute;
+  max-width: 150px;
 }
