@@ -1,30 +1,27 @@
-let myCards = document.querySelectorAll('.card')
-let flippedCards = []
+let cards = document.querySelectorAll('.card')
 const reStart = document.getElementById('resBtn')
+let flippedCard = false
+let freeze = false
 
-const frontImages = [
-  {
-    id: 1,
-    image: 'images/1.jpg'
-  },
-  {
-    id: 2,
-    image: 'images/2.jpg'
-  },
-  {
-    id: 3,
-    image: 'images/5.jpg'
-  },
-  { id: 4, image: 'images/1.jpg' },
-  { id: 5, image: 'images/2.jpg' },
-  {
-    id: 6,
-    image: 'images/5.jpg'
-  }
-]
+let frontCard, backCard
 
-const gameRestart = () => {
-  let flippedCard = document.getElementsByClassName('card front')
-  frontImages.sort(() => Math.random() - 0.5)
+//check for matched cards
+function Match() {
+  let matchedCards = getCard(frontCard) === getCard(backCard)
+
+  matchedCards ? disableCard() : unFlip()
 }
-reStart.addEventListener('click', gameRestart())
+function getCard() {}
+
+//flip cards and check whether they match()
+function flipCard() {
+  if (freeze) return
+  this.classList.add('flip')
+  if (!flippedCard) {
+    flippedCard = true
+    frontCard = this
+    return
+  }
+  backCard = this
+  Match()
+}
