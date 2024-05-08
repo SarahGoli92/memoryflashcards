@@ -1,54 +1,6 @@
 let cards = document.querySelectorAll('.card')
 const reStart = document.getElementById('resBtn')
 const cardsArr = []
-let flippedCard = false
-let freeze = false
-
-let frontCard, backCard
-
-// //check for matched cards
-// function Match() {
-//   let matchedCards = getCard(frontCard) === getCard(backCard)
-
-//   matchedCards ? freezeCards() : unFlip()
-// }
-// function getCard(cardInfo) {
-//   cardInfo.getAttribute('.card')
-// }
-
-// //flip cards and check whether they match()
-// function flipCard() {
-//   if (freeze) return
-//   this.classList.add('flip')
-//   if (!flippedCard) {
-//     flippedCard = true
-//     frontCard = this
-//     return
-//   }
-//   backCard = this
-//   Match()
-// }
-
-// function freezeCards() {
-//   frontCard.removeEventListener('click', flipCard())
-//   backCard.removeEventListener('click', flipCard())
-// }
-
-// //a method to unflip the card
-// function unFlip() {
-//   freeze = true
-//   setTimeout(() => {
-//     frontCard.classList.remove('flip')
-//     backCard.classList.remove('flip')
-//   }, 1000)
-// }
-
-// function resetGame() {
-//   cards.forEach((card) => {
-//     card.classList.remove('flip')
-//     card.addEventListener('click', flipCard())
-//   })
-// }
 
 function start() {
   if (this.getAttribute('disable') == 'true') return
@@ -79,3 +31,10 @@ function start() {
 cards.forEach((card) => {
   card.addEventListener('click', start)
 })
+
+function shuffleCards() {
+  cardsArr.forEach((card) => {
+    card.classList.remove('flip')
+    card.removeAttribute('disable')
+  })
+}
