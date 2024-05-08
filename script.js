@@ -9,10 +9,10 @@ let frontCard, backCard
 function Match() {
   let matchedCards = getCard(frontCard) === getCard(backCard)
 
-  matchedCards ? disableCard() : unFlip()
+  matchedCards ? freezeCards() : unFlip()
 }
-function getCard(singleCard) {
-  singleCard.getAttribute('.card')
+function getCard(cardInfo) {
+  cardInfo.getAttribute('.card')
 }
 
 //flip cards and check whether they match()
@@ -30,7 +30,36 @@ function flipCard() {
 
 function freezeCards() {
   frontCard.removeEventListener('click', flipCard())
-  backCard.removeEventListener('click', flipCard)
+  backCard.removeEventListener('click', flipCard())
 
-  resetGame()
+  resetBoard()
 }
+
+//a method to unflip the card
+function unFlip() {
+  freeze = true
+  setTimeout(() => {
+    frontCard.classList.remove('flip')
+    backCard.classList.remove('flip')
+
+    resetBoard()
+  }, 1000)
+}
+function resetBoard() {
+  ;[flipCard, freeze] = [false, false]
+  ;[frontCard, backCard] = [null, null]
+}
+
+function resetGame() {
+  cards.forEach((card) => {
+    card.classList.remove('flip')
+    card.addEventListener('click', flipCard())
+  })
+  resetBoard()
+}
+;(function shuffle() {
+  cards.forEach((card) => {
+    let randomPos = Math.floor(Math.random() * 4)
+    card.style.order = randomPos
+  })
+})
