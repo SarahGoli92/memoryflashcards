@@ -42,3 +42,5 @@ function restartGame() {
     card.style.order = Math.floor(Math.random() * 6)
   })
 }
+
+reStart.addEventListener('click', restartGame())
