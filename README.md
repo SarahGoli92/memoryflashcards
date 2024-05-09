@@ -1,8 +1,6 @@
 # Memory FlashCards Game
 
-My project for Unit 1 GA
-
----
+## My project for Unit 1 GA
 
 ## Description
 
