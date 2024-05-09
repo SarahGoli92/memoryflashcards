@@ -39,8 +39,8 @@ function restartGame() {
   })
   cardsArr.length = 0
   cards.forEach((card) => {
-    card.style.order = Math.floor(Math.random() * 6)
+    card.style.order = Math.floor(Math.random() * cards.length)
   })
 }
 
-reStart.addEventListener('click', restartGame())
+reStart.addEventListener('click', restartGame)
