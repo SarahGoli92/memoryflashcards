@@ -20,7 +20,7 @@ body {
   display: grid;
   grid-gap: 80px;
   grid-template-columns: 150px 150px 150px;
-  grid-template-rows: 150px 150px 150px;
+  grid-template-rows: 150px 150px;
 
   position: relative;
 }
@@ -31,9 +31,9 @@ body {
   position: relative;
 }
 
-#resBtn {
-  margin-top: auto;
-}
+/* .btnDiv {
+  padding-top: -30px;
+} */
 
 .front {
   max-width: 150px;
