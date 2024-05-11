@@ -33,13 +33,15 @@ cards.forEach((card) => {
 })
 
 function restartGame() {
-  cardsArr.forEach((card) => {
-    card.classList.remove('flip')
-    card.removeAttribute('disable')
-  })
+  // cardsArr.forEach((card) => {
+  //   card.classList.remove('flip')
+  //   card.removeAttribute('disable')
+  // })
   cardsArr.length = 0
   cards.forEach((card) => {
     card.style.order = Math.floor(Math.random() * cards.length)
+    card.classList.remove('flip')
+    card.removeAttribute('disable')
   })
 }
 
